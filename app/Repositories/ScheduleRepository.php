@@ -10,7 +10,7 @@ class ScheduleRepository implements ScheduleRepositoryInterface
 {
     public function getAll(): Collection
     {
-        return Schedule::all();
+        return Schedule::tableList()->get();
     }
     
     public function getById(string $id): Schedule

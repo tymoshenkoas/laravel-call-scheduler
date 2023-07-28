@@ -31,7 +31,10 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('schedules.list') }}">{{ __('Schedules') }}</a>
+                            <a class="nav-link" href="{{ route('schedules.index') }}">{{ __('Schedules') }}</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('schedules.create') }}">{{ __('Create a call') }}</a>
                         </li>
                     </ul>
 

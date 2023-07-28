@@ -24,6 +24,11 @@ class ScheduleController extends Controller
         return view('schedules.list');
     }
 
+    public function getList()
+    {
+        return response()->json($this->scheduleRepository->getAll()->toArray(), 200);
+    }
+
     public function create()
     {
         return view('schedules.create');
@@ -33,8 +38,7 @@ class ScheduleController extends Controller
     {
         $scheduledCall = $this->scheduleRepository->store($request->validated());
 
-        ScheduledCallJob::dispatch($scheduledCall->_id)
-            ->delay(Carbon::createFromFormat('Y-m-d H:i:s', $scheduledCall->time));
+        ScheduledCallJob::dispatch($scheduledCall->_id)->delay($scheduledCall->time);
 
         return response()->json(['message' => 'Successfully created'], 201);
     }

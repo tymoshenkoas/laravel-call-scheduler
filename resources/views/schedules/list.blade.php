@@ -8,7 +8,7 @@
                 <div class="card-header">{{ __('Schedules List') }}</div>
 
                 <div class="card-body">
-                    {{ __('Table') }}
+                    <schedule-table :route="'{{ route('schedules.list') }}'"></schedule-table>
                 </div>
             </div>
         </div>
