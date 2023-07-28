@@ -18,3 +18,5 @@ use App\Http\Controllers\ScheduleController;
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::get('schedules', [ScheduleController::class, 'index'])->name('schedules.list');
+Route::get('schedules/create', [ScheduleController::class, 'create'])->name('schedules.create');
+Route::post('schedules', [ScheduleController::class, 'store'])->name('schedules.store');
