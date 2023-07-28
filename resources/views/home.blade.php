@@ -10,13 +10,13 @@
                 <div class="card-body">
                     <u>
                         <li>
-                            <a href="{{ route('schedules.list') }}">{{ __('Check scheduled calls') }}</a>
+                            <a href="{{ route('schedules.index') }}">{{ __('Check scheduled calls') }}</a>
                         </li>
                         <li>
                             <a href="{{ route('schedules.create') }}">{{ __('Create a new call') }}</a>
                         </li>
                         <li>
-                            {{ __('Check archive') }}
+                            <a href="{{ route('archives.index') }}">{{ __('Check archive') }}</a>
                         </li>
                     </u>
                 </div>

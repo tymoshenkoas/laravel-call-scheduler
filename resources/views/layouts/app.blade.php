@@ -36,6 +36,9 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('schedules.create') }}">{{ __('Create a call') }}</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('archives.index') }}">{{ __('Archive') }}</a>
+                        </li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->

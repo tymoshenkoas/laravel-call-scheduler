@@ -25,15 +25,15 @@
                     const remainderDifferenceInHours = timeDifference / millisecondsInOneHour;
                     const remainderDifferenceInMinutes = (timeDifference % millisecondsInOneHour) / millisecondsInOneMinute;
                     const remainderDifferenceInSeconds = (timeDifference % millisecondsInOneMinute) / millisecondsInOneSecond;
-                    var remainingHours = Math.floor(remainderDifferenceInHours);
+                    let remainingHours = Math.floor(remainderDifferenceInHours);
                     if (remainingHours < 10) {
                         remainingHours = '0' + remainingHours;
                     }
-                    var remainingMinutes = Math.floor(remainderDifferenceInMinutes);
+                    let remainingMinutes = Math.floor(remainderDifferenceInMinutes);
                     if (remainingMinutes < 10) {
                         remainingMinutes = '0' + remainingMinutes;
                     }
-                    var remainingSeconds = Math.floor(remainderDifferenceInSeconds);
+                    let remainingSeconds = Math.floor(remainderDifferenceInSeconds);
                     if (remainingSeconds < 10) {
                         remainingSeconds = '0' + remainingSeconds;
                     }
