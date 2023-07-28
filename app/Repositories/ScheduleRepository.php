@@ -13,7 +13,7 @@ class ScheduleRepository implements ScheduleRepositoryInterface
         return Schedule::all();
     }
     
-    public function getById(int $id): Schedule
+    public function getById(string $id): Schedule
     {
         return Schedule::find($id);
     }
@@ -21,5 +21,10 @@ class ScheduleRepository implements ScheduleRepositoryInterface
     public function store(array $data): Schedule
     {
         return Schedule::create($data);
+    }
+
+    public function delete(string $id): void
+    {
+        Schedule::destroy($id);
     }
 }

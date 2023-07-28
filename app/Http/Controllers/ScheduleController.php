@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 use App\Http\Requests\StoreScheduledCallRequest;
 use App\Models\Schedule;
 use App\Repositories\Interfaces\ScheduleRepositoryInterface;
+use App\Jobs\ScheduledCallJob;
+use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Log;
 
 class ScheduleController extends Controller
 {
@@ -28,7 +31,10 @@ class ScheduleController extends Controller
 
     public function store(StoreScheduledCallRequest $request)
     {
-        $this->scheduleRepository->store($request->validated());
+        $scheduledCall = $this->scheduleRepository->store($request->validated());
+
+        ScheduledCallJob::dispatch($scheduledCall->_id)
+            ->delay(Carbon::createFromFormat('Y-m-d H:i:s', $scheduledCall->time));
 
         return response()->json(['message' => 'Successfully created'], 201);
     }

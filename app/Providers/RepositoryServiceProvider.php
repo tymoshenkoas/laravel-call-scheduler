@@ -15,6 +15,11 @@ class RepositoryServiceProvider extends ServiceProvider
             'App\Repositories\Interfaces\ScheduleRepositoryInterface',
             'App\Repositories\ScheduleRepository'
         );
+
+        $this->app->bind(
+            'App\Repositories\Interfaces\ArchiveCallRepositoryInterface',
+            'App\Repositories\ArchiveCallRepository'
+        );
     }
 
     /**

@@ -9,7 +9,9 @@ interface ScheduleRepositoryInterface
 {
     public function getAll(): Collection;
 
-    public function getById(int $id): Schedule;
+    public function getById(string $id): Schedule;
 
     public function store(array $data): Schedule;
+
+    public function delete(string $id): void;
 }
