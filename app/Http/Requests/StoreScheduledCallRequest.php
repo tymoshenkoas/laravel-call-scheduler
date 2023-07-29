@@ -22,9 +22,9 @@ class StoreScheduledCallRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'phone_number' => 'required',
-            'time' => 'required',
-            'text' => 'required',
+            'phone_number' => 'required|regex:/^([0-9\s\+]*)$/|min:10',
+            'time' => 'required|date_format:Y-m-d H:i', 
+            'text' => 'required|max:200',
         ];
     }
 }

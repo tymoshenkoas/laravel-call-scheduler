@@ -42,11 +42,11 @@ import axios from 'axios';
             },
             timerCheck(timerIsWorking) {
                 if (!timerIsWorking) {
-                    this.loadData();
+                    setTimeout(this.loadData, 2000);
                 }
             }
         },
-        async mounted() {
+        mounted() {
             this.loadData();
         }
     }

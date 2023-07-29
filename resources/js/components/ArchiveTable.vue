@@ -18,8 +18,6 @@
 </template>
 
 <script>
-import axios from 'axios';
-
     export default {
         props: {
             route: String
@@ -41,30 +39,7 @@ import axios from 'axios';
                     });
             },
             transformDate(datetimeStr) {
-                const dateObj = new Date(datetimeStr);
-                const year = dateObj.getFullYear();
-                let month = dateObj.getMonth() + 1;
-                if (month < 10) {
-                    month = "0" + month;
-                }
-                let date = dateObj.getDate();
-                if (date < 10) {
-                    date = "0" + date;
-                }
-                let hours = dateObj.getHours();
-                if (hours < 10) {
-                    hours = '0' + hours;
-                }
-                let minutes = dateObj.getMinutes();
-                if (minutes < 10) {
-                    minutes = '0' + minutes;
-                }
-                let seconds = dateObj.getSeconds();
-                if (seconds < 10) {
-                    seconds = '0' + seconds;
-                }
-
-                return year + "-" + month + "-" + date + " " + hours + ":" + minutes + ":" + seconds;
+                return moment(datetimeStr).format('YYYY-MM-DD hh:mm');
             }
         },
         async mounted() {

@@ -17,7 +17,8 @@
                         id="phone_number" 
                         type="text" 
                         class="form-control" 
-                        name="phone_number" 
+                        name="phone_number"
+                        placeholder="+380997733111"
                         v-model="form.phone_number"
                         :class="errors.phone_number ? 'is-invalid' : ''"
                     >
@@ -41,6 +42,7 @@
                         type="text"
                         class="form-control"
                         name="time"
+                        placeholder="2023-07-29 14:34"
                         v-model="form.time"
                         :class="errors.time ? 'is-invalid' : ''"
                     >
@@ -89,8 +91,6 @@
 </template>
 
 <script>
-import axios from 'axios';
-
     export default {
         props: {
             route: String
@@ -117,7 +117,11 @@ import axios from 'axios';
                 await self.resetMessage();
                 await self.setErrors();
 
-                await axios.post(self.route, self.form)
+                await axios.post(self.route, {
+                    'phone_number' : self.form.phone_number,
+                    'time' : moment(self.form.time).utc().format('YYYY-MM-DD hh:mm'), 
+                    'text' : self.form.text, 
+                })
                     .then(function (response) {
                         self.resetForm();
                         self.message = response.data.message;
